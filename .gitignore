@@ -1,2 +1,2 @@
 build/no_docker/environment/*
-*/__pycache__
+**/__pycache__/
