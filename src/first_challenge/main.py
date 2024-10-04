@@ -8,4 +8,9 @@ if __name__ == "__main__":
     #SCRAP URL
     json_parsed: modules.scrap.ParsingStatus = modules.scrap.scrap(values)
     if json_parsed.hasError:
-        raise json_parsed.errorDescription
+        raise BaseException(json_parsed.errorDescription)
+    
+    #OUTPUT THE JSON INFO IN THE CSV
+    product: modules.ouput_csv.Product =  modules.ouput_csv.getProducts(json_parsed)
+    csv: list = modules.ouput_csv.outputCSV(product, values)
+
